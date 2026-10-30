@@ -5,18 +5,13 @@ import '../../data/models/employee_model.dart';
 import 'mock_scenario.dart';
 
 class MockApiInterceptor extends Interceptor {
-  // Scenario state
   MockScenario currentScenario = MockScenario.success;
   bool isForceOffline = false;
-
-  // Idempotency tracking (store event IDs that server has committed)
   final Set<String> _processedEventIds = {};
-
-  // Server state simulation
   late EmployeeModel _employee;
   late Map<String, dynamic> _leaveBalance;
   final List<Map<String, dynamic>> _leaveRequests = [];
-  final Map<String, Map<String, dynamic>> _attendanceRecords = {}; // keyed by date YYYY-MM-DD
+  final Map<String, Map<String, dynamic>> _attendanceRecords = {};
 
   MockApiInterceptor() {
     _initializeSeedData();

@@ -14,14 +14,11 @@ import '../../data/repositories/leave_repository.dart';
 class InitialBinding extends Bindings {
   @override
   void dependencies() {
-    // 1. Core Network & Services
     final apiClient = Get.put<ApiClient>(ApiClient(), permanent: true);
     final storageService = Get.find<StorageService>(); // Initialized in main()
     final connectivityService = Get.put<ConnectivityService>(ConnectivityService(), permanent: true);
     Get.put<LocationService>(LocationService(), permanent: true);
     Get.put<ThemeService>(ThemeService(), permanent: true);
-
-    // 2. Data Sources
     final localDataSource = Get.put<AppLocalDataSource>(
       AppLocalDataSource(storageService),
       permanent: true,
@@ -30,14 +27,10 @@ class InitialBinding extends Bindings {
       AppRemoteDataSource(apiClient),
       permanent: true,
     );
-
-    // 3. Sync Service
     final syncService = Get.put<SyncService>(
       SyncService(localDataSource, remoteDataSource, connectivityService),
       permanent: true,
     );
-
-    // 4. Repositories
     Get.put<EmployeeRepository>(
       EmployeeRepository(localDataSource, remoteDataSource),
       permanent: true,

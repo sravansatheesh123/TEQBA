@@ -9,8 +9,6 @@ class AppLocalDataSource {
   final StorageService _storageService;
 
   AppLocalDataSource(this._storageService);
-
-  // Employee
   Future<void> cacheEmployee(EmployeeModel employee) async {
     await _storageService.saveEmployee(employee.toJson());
   }
@@ -20,8 +18,6 @@ class AppLocalDataSource {
     if (json == null) return null;
     return EmployeeModel.fromJson(json);
   }
-
-  // Attendance Records (History & Today)
   Future<void> cacheAttendanceRecords(List<AttendanceRecordModel> records) async {
     final list = records.map((e) => e.toJson()).toList();
     await _storageService.saveAttendanceRecords(list);

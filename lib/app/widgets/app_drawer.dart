@@ -35,7 +35,6 @@ class AppDrawer extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              // 1. Employee Profile Header
               Container(
                 padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
                 decoration: BoxDecoration(
@@ -116,7 +115,6 @@ class AppDrawer extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 10),
-                    // Office location pill
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
                       decoration: BoxDecoration(
@@ -143,13 +141,10 @@ class AppDrawer extends StatelessWidget {
                   ],
                 ),
               ),
-
-              // 2. Scrollable Body with Controls & Navigation
               Expanded(
                 child: ListView(
                   padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                   children: [
-                    // --- SECTION 1: WORKSPACE DISPLAY MODES ---
                     _buildSectionHeader('WORKSPACE APPEARANCE'),
                     const SizedBox(height: 6),
                     Container(
@@ -217,8 +212,6 @@ class AppDrawer extends StatelessWidget {
                     ),
 
                     const SizedBox(height: 16),
-
-                    // --- SECTION 2: REVIEWER & DEV TOOLS ---
                     _buildSectionHeader('REVIEWER TESTING SIMULATOR'),
                     const SizedBox(height: 6),
                     Container(
@@ -261,8 +254,6 @@ class AppDrawer extends StatelessWidget {
                     ),
 
                     const SizedBox(height: 16),
-
-                    // --- SECTION 3: APP NAVIGATION ---
                     _buildSectionHeader('WORKSPACE NAVIGATION'),
                     const SizedBox(height: 6),
                     Container(
@@ -329,8 +320,6 @@ class AppDrawer extends StatelessWidget {
                   ],
                 ),
               ),
-
-              // 3. Drawer Bottom Sign Out Tile
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 decoration: BoxDecoration(
